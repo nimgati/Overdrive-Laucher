@@ -129,10 +129,8 @@ class Server:
             return "Invalid username or password."
 
         if cmd == "GET-OPTIONS":
-            id_user, password = args
-            if self.authenticate(id_user, password):
-                return json.dumps(self.options)
-            return "Invalid username or password."
+            option = args[0]
+            return self.options[option]
 
         return "Invalid request."
 
